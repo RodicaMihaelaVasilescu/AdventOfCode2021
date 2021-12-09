@@ -6,5 +6,7 @@
 ##### [--- Day 5: Hydrothermal Venture ---](https://adventofcode.com/2021/day/5) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2005/Day%205.cpp)
 ##### [--- Day 6: Lanternfish ---](https://adventofcode.com/2021/day/6) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2006/Day%206.cpp)
 ##### [--- Day 7: The Treachery of Whales ---](https://adventofcode.com/2021/day/7) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2007/Day%207.cpp)
+##### [--- Day 8: Seven Segment Search ---](https://adventofcode.com/2021/day/8) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2008/Day%208.cpp)
+##### [--- Day 9: Smoke Basin ---](https://adventofcode.com/2021/day/9) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2009/Day%209.cpp)
 
 ![alt text](AdventOfCode.png)
