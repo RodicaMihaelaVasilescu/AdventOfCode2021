@@ -10,27 +10,6 @@
 
 using namespace std;
 
-vector<string> split(string line, string delimiters = " ,./;")
-{
-  vector<string> words;
-
-  int index = line.find_first_of(delimiters);
-  if (!line.substr(0, index).empty())
-  {
-    words.push_back(line.substr(0, index));
-  }
-
-  while (index != -1) {
-    index++;
-    line = line.substr(index, line.length() - index);
-    index = line.find_first_of(delimiters);
-    auto newWord = line.substr(0, index);
-    if (!newWord.empty())
-      words.push_back(newWord);
-  }
-  return words;
-}
-
 vector<int> line{ 1,-1, 0, 0 };
 vector<int> column{ 0, 0,-1, 1 };
 
