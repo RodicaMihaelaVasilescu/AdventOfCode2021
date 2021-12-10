@@ -34,46 +34,20 @@ vector<string> split(string line, string delimiters = ",./;")
 int segmentToInt(string segment)
 {
   sort(segment.begin(), segment.end());
-  if (segment == "abcefg")
+  map<string, int> segmentToInt
   {
-    return 0;
-  }
-  else if (segment == "cf")
-  {
-    return 1;
-  }
-  else  if (segment == "acdeg")
-  {
-    return 2;
-  }
-  else  if (segment == "acdfg")
-  {
-    return  3;
-  }
-  else  if (segment == "bcdf")
-  {
-    return  4;
-  }
-  else  if (segment == "abdfg")
-  {
-    return  5;
-  }
-  else  if (segment == "abdefg")
-  {
-    return  6;
-  }
-  else  if (segment == "acf")
-  {
-    return 7;
-  }
-  else  if (segment == "abcdefg")
-  {
-    return  8;
-  }
-  else  if (segment == "abcdfg")
-  {
-    return  9;
-  }
+    {"abcefg", 0},
+    {"cf", 1},
+    {"acdeg", 2},
+    {"acdfg", 3},
+    {"bcdf", 4},
+    {"abdfg", 5},
+    {"abdefg", 6},
+    {"acf", 7},
+    {"abcdefg", 8},
+    {"abcdfg", 9}
+  };
+  return segmentToInt[segment];
 }
 
 int main()
@@ -101,7 +75,6 @@ int main()
 
     for (auto& word : theFirst10Words)
     {
-      sort(word.begin(), word.end());
       if (word.size() == 4)
       {
         fourLetter = word;
