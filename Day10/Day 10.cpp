@@ -1,22 +1,19 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
-#include <cstdio>
-#include <stdio.h>
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <map>
-#include <set>
-#include <regex>
-#include <stack>
+#include <deque>
 
 using namespace std;
 
-int getScore(string line)
+vector<long long> scoresPart2;
+
+long long getScore(string brackets)
 {
-  int score = 0;
-  stack <char> brackets;
+  deque <char> openBrackets;
 
   map<char, bool> isClosingBracket;
   isClosingBracket[')'] = true;
@@ -24,44 +21,57 @@ int getScore(string line)
   isClosingBracket[']'] = true;
   isClosingBracket['>'] = true;
 
-  map<char, char> closingBracket;
-  closingBracket['('] = ')';
-  closingBracket['['] = ']';
-  closingBracket['{'] = '}';
-  closingBracket['<'] = '>';
+  map<char, char> correspondingBracket;
+  correspondingBracket['('] = ')';
+  correspondingBracket[')'] = '(';
+  correspondingBracket['['] = ']';
+  correspondingBracket[']'] = '[';
+  correspondingBracket['{'] = '}';
+  correspondingBracket['}'] = '{';
+  correspondingBracket['<'] = '>';
+  correspondingBracket['>'] = '<';
 
-  map<char, char> openingBracket;
-  openingBracket[')'] = '(';
-  openingBracket[']'] = '[';
-  openingBracket['}'] = '{';
-  openingBracket['>'] = '<';
+  map<char, int> scoringPart1;
+  scoringPart1[')'] = 3;
+  scoringPart1[']'] = 57;
+  scoringPart1['}'] = 1197;
+  scoringPart1['>'] = 25137;
 
-  map<char, int> scoring;
-  scoring[')'] = 3;
-  scoring[']'] = 57;
-  scoring['}'] = 1197;
-  scoring['>'] = 25137;
+  map<char, int> scoringPart2;
+  scoringPart2[')'] = 1;
+  scoringPart2[']'] = 2;
+  scoringPart2['}'] = 3;
+  scoringPart2['>'] = 4;
 
-  for (char ch : line)
+  for (char bracket : brackets)
   {
-    if (!isClosingBracket[ch])
+    if (!isClosingBracket[bracket])
     {
-      brackets.push(ch);
+      openBrackets.push_front(bracket);
     }
-    else if (isClosingBracket[ch])
+    else if (isClosingBracket[bracket])
     {
-      if (brackets.top() == openingBracket[ch])
+      if (openBrackets.front() == correspondingBracket[bracket])
       {
-        brackets.pop();
+        openBrackets.pop_front();
       }
       else
       {
-        return scoring[ch];
+        return scoringPart1[bracket];
       }
     }
   }
 
-  return score;
+  long long score = 0;
+  while (!openBrackets.empty())
+  {
+    char closedBracket = correspondingBracket[openBrackets.front()];
+    score = score * 5 + scoringPart2[closedBracket];
+    openBrackets.pop_front();
+  }
+  scoresPart2.push_back(score);
+
+  return 0;
 }
 
 int main()
@@ -71,11 +81,19 @@ int main()
 
   string line;
 
-  int sum = 0;
+  long long sumPart1 = 0;
   while (cin >> line)
   {
-    sum += getScore(line);
+    sumPart1 += getScore(line);
   }
 
-  cout << sum;
+  sort(scoresPart2.begin(), scoresPart2.end());
+  long long part2 = 0;
+  if (!scoresPart2.empty())
+  {
+    part2 = scoresPart2[scoresPart2.size() / 2];
+  }
+
+  cout << "Part 1: " << sumPart1 << endl;
+  cout << "Part 2: " << part2 << endl;
 }
