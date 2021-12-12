@@ -1,3 +1,5 @@
+//warning: run this solution in release mode..
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
@@ -30,14 +32,15 @@ vector<string> split(string line, string delimiters = ",./;-")
 }
 
 vector<pair<string, string>> caves;
+
 bool isSmallCave(string i)
 {
   return islower(i[0]);
 }
 
-bool doesPathContainsCave(vector<string> paths, string lowerCase)
+bool doesPathContainsCave(vector<string> path, string lowerCase)
 {
-  return find(paths.begin(), paths.end(), lowerCase) != paths.end();
+  return find(path.begin(), path.end(), lowerCase) != path.end();
 }
 
 bool doesAnySmallCaveOccursTwice(vector<string>path)
@@ -52,14 +55,10 @@ bool doesAnySmallCaveOccursTwice(vector<string>path)
     }
   }
 
-  for (auto frequency : smallCavesFrequency)
-  {
-    if (frequency.second == 2)
-    {
-      return true;
-    }
-  }
-  return false;
+  // find if small there's any cave with frequency twice
+  return std::find_if(smallCavesFrequency.begin(), smallCavesFrequency.end(), [](auto x) {
+    return x.second == 2;
+    }) != smallCavesFrequency.end();
 }
 
 int getAllPathsPart1(string start, vector<string> path = vector<string>())
