@@ -8,5 +8,13 @@
 ##### [--- Day 7: The Treachery of Whales ---](https://adventofcode.com/2021/day/7) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2007/Day%207.cpp)
 ##### [--- Day 8: Seven Segment Search ---](https://adventofcode.com/2021/day/8) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2008/Day%208.cpp)
 ##### [--- Day 9: Smoke Basin ---](https://adventofcode.com/2021/day/9) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2009/Day%209.cpp)
+##### [--- Day 10: Syntax Scoring ---](https://adventofcode.com/2021/day/10) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2010/day%2010.cpp)
+##### [--- Day 11: Dumbo Octopus ---](https://adventofcode.com/2021/day/11) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2011/day%2011.cpp)
+##### [--- Day 12: Passage Pathing ---](https://adventofcode.com/2021/day/12) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2012/day%2012.cpp)
+
+##### [--- Day 13: ---](https://adventofcode.com/2021/day/13) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2013/day%2013.cpp)
+##### [--- Day 14: ---](https://adventofcode.com/2021/day/14) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2014/day%2014.cpp)
+##### [--- Day 15: ---](https://adventofcode.com/2021/day/15) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2014/day%2014.cpp)
+
 
 ![alt text](AdventOfCode.png)
