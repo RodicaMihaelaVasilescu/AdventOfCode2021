@@ -35,16 +35,9 @@ bool isSmallCave(string i)
   return islower(i[0]);
 }
 
-bool doesPathContainsCave(vector<string> v, string lowerCase)
+bool doesPathContainsCave(vector<string> paths, string lowerCase)
 {
-  for (auto i : v)
-  {
-    if (i == lowerCase)
-    {
-      return true;
-    }
-  }
-  return false;
+  return find(paths.begin(), paths.end(), lowerCase) != paths.end();
 }
 
 bool doesAnySmallCaveOccursTwice(vector<string>path)
