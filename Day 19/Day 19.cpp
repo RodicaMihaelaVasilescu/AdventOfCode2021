@@ -146,11 +146,6 @@ map<int, vector <beacon>> readInput()
   return scanners;
 }
 
-int getDistanceBetweenTwoBeacons(beacon i, beacon j)
-{
-  return sqrt(pow(i.x - j.x, 2) + pow(i.y - j.y, 2) + pow(i.z - j.z, 2));
-}
-
 int getManhattanDistance(beacon i, beacon j)
 {
   return abs(i.x - j.x) + abs(i.y - j.y) + abs(i.z - j.z);
