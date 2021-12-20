@@ -1,116 +1,52 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
-#include <cstdio>
-#include <stdio.h>
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <map>
 #include <set>
-#include <regex>
-#include <sstream>
-
 using namespace std;
 
-void replaceAll(string& s, const string& search, const string& replace)
-{
-  for (size_t pos = 0; ; pos += replace.length())
-  {
-    // Locate the substring to replace
-    pos = s.find(search, pos);
-    if (pos == string::npos) break;
-    // Replace by erasing and inserting
-    s.erase(pos, search.length());
-    s.insert(pos, replace);
-  }
-}
-vector<string> split(string line, string delimiters = ",./;= ")
-{
-  vector<string> words;
-  if (line.empty())
-  {
-    return words;
-  }
-
-  int index = line.find_first_of(delimiters);
-  if (!line.substr(0, index).empty())
-  {
-    words.push_back(line.substr(0, index));
-  }
-
-  while (index != -1) {
-    index++;
-    line = line.substr(index, line.length() - index);
-    index = line.find_first_of(delimiters);
-    auto newWord = line.substr(0, index);
-    if (!newWord.empty())
-    {
-      words.push_back(newWord);
-    }
-  }
-  return words;
-}
-
-vector<int> split2(string line, string delimiters = ",./;")
-{
-  vector<int> words;
-
-  int index = line.find_first_of(delimiters);
-  if (!line.substr(0, index).empty())
-  {
-    words.push_back(stoi(line.substr(0, index)));
-  }
-
-  while (index != -1) {
-    index++;
-    line = line.substr(index, line.length() - index);
-    index = line.find_first_of(delimiters);
-    auto newWord = line.substr(0, index);
-    if (!newWord.empty())
-    {
-      words.push_back(stoi(newWord));
-    }
-  }
-  return words;
-}
-int minX, maxX, minY, maxY;
 vector<int> line{ -1, -1, -1, 0, 0, 0, 1, 1, 1 };
 vector<int> column{ -1,  0 , 1, -1, 0, 1, -1, 0 , 1 };
 
-void addPadding(vector<string>& input, int n)
+void addPadding(vector<string>& input, int paddingSize)
 {
-  if (n < 1)
+  if (paddingSize < 1)
   {
     return;
   }
-  string paddingMargin(n, '.');
-  string paddingLine(n * 2 + input[0].size(), '.');
-  for (auto& i : input)
+  string leftAndRightPadding(paddingSize, '.');
+  string topAndBottomPadding(paddingSize * 2 + input[0].size(), '.');
+  for (auto& line : input)
   {
-    i = paddingMargin + i + paddingMargin;
+    line = leftAndRightPadding + line + leftAndRightPadding;
   }
 
-  for (int i = 0; i < n; i++)
+  while (paddingSize--)
   {
-    input.insert(input.begin(), paddingLine);
-    input.push_back(paddingLine);
+    input.insert(input.begin(), topAndBottomPadding);
+    input.push_back(topAndBottomPadding);
   }
 }
-void trimMatrix(vector<string>& input, int i1, int i2, int j1, int j2)
+void trimMatrix(vector<string>& input, int trimSize)
 {
   vector<string> newInput;
-  int line = 0;
-  for (auto& i : input)
+  int row = 0;
+  for (auto& line : input)
   {
-    if (line >= i1 && line <= i2)
+    if (row >= trimSize && row < input.size() - trimSize)
     {
-      newInput.push_back(i.substr(j1, j2 - j1 + 1));
+      line.erase(0, trimSize);
+      line.erase(line.size() - trimSize, trimSize);
+      newInput.push_back(line);
     }
-    line++;
+    row++;
   }
   input = newInput;
 }
+
 void print(vector<string> input)
 {
   for (auto& i : input)
@@ -120,20 +56,30 @@ void print(vector<string> input)
   cout << endl;
 }
 
-int getNextImage(string enhacement, vector<string>& input)
+int countPixels(vector<string> input, char ch)
 {
-  int nr = 0;
-  int minx = INT_MAX, miny = INT_MAX, maxx = 0, maxy = 0;
+  int sum = 0;
+  for (auto i : input)
+  {
+    for (auto j : i)
+    {
+      if (j == ch)
+      {
+        sum++;
+      }
+    }
+  }
+  return sum;
+}
+
+int getLightPixelsNumber(string enhacement, vector<string>& input)
+{
   vector<string> output = input;
   for (int i = 0; i < input.size(); i++)
   {
     for (int j = 0; j < input[i].size(); j++)
     {
       string binary;
-      if (i == 5 && j == 10)
-      {
-        int bkp = 0;
-      }
       for (int d = 0; d < line.size(); d++)
       {
         int x = i + line[d];
@@ -152,34 +98,17 @@ int getNextImage(string enhacement, vector<string>& input)
           binary += "0";
         }
       }
-      long long dec = -1;
-      dec = stoll(binary, 0, 2);
-      output[i][j] = enhacement[dec];
-      if (output[i][j] == '#')
-      {
-        minx = min(minx, i);
-        maxx = max(maxx, i);
-        miny = min(miny, j);
-        maxy = max(maxy, j);
-      }
 
+      long long dec = stoll(binary, 0, 2);
+      output[i][j] = enhacement[dec];
     }
   }
 
   input = output;
-  trimMatrix(input, 1, input.size()-2, 1, input[0].size()-2);
-  for (auto i : input)
-  {
-    for (auto j : i)
-    {
-      if (j == '#')
-      {
-        nr++;
-      }
-    }
-  }
-  return nr;
+  trimMatrix(input, 1);
+  return countPixels(input, '#');
 }
+
 int main()
 {
   freopen("in.txt", "r", stdin);
@@ -187,9 +116,9 @@ int main()
 
   string line;
   vector<string> input;
-  string enhacement;
+  string imageEnhacementAlgorithm;
 
-  cin >> enhacement;
+  cin >> imageEnhacementAlgorithm;
   while (getline(cin, line)) {
     if (line.empty())
     {
@@ -198,17 +127,20 @@ int main()
     input.push_back(line);
   }
 
-
   int round = 0;
-  int pad = input.size();
   addPadding(input, 100);
   while (round++ < 50)
   {
-    int nr = getNextImage(enhacement, input);
-    if (round == 2 || round == 50)
+    int lightPixelsNumber = getLightPixelsNumber(imageEnhacementAlgorithm, input);
+    if (round == 2)
     {
       //print(input);
-      cout << nr << endl;
+      cout << "Part 1: " << lightPixelsNumber << endl;
+    }
+    if (round == 50)
+    {
+      //print(input);
+      cout << "Part 2: " << lightPixelsNumber << endl;
     }
   }
 
