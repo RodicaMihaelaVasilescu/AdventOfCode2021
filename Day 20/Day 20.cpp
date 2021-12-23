@@ -143,5 +143,4 @@ int main()
       cout << "Part 2: " << lightPixelsNumber << endl;
     }
   }
-
 }
