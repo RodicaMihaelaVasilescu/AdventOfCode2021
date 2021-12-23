@@ -19,6 +19,11 @@
 ##### [--- Day 18: Snailfish ---](https://adventofcode.com/2021/day/18) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2018/Day%2018.cpp)
 ##### [--- Day 19: Beacon Scanner ---](https://adventofcode.com/2021/day/19) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2019/Day%2019.cpp)
 ##### [--- Day 20: Trench Map ---](https://adventofcode.com/2021/day/20) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2020/Day%2020.cpp)
+##### [--- Day 21: Dirac Dice ---](https://adventofcode.com/2021/day/21) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2021/Day%2021.cpp)
+##### [--- Day 22: Reactor Reboot ---](https://adventofcode.com/2021/day/22) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2022/Day%2022.cpp)
+##### [--- Day 23: Amphipod ---](https://adventofcode.com/2021/day/23) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2023/Day%2023.cpp)
+##### [--- Day 24:---](https://adventofcode.com/2021/day/24) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2024/Day%2024.cpp)
+##### [--- Day 25:---](https://adventofcode.com/2021/day/25) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2025/Day%2025.cpp)
 
 
 ![alt text](AdventOfCode.png)
