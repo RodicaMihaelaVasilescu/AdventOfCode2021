@@ -12,7 +12,7 @@
 ##### [--- Day 11: Dumbo Octopus ---](https://adventofcode.com/2021/day/11) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2011/Day%2011.cpp)
 ##### [--- Day 12: Passage Pathing ---](https://adventofcode.com/2021/day/12) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2012/Day%2012.cpp)
 
-##### [--- Day 13: ---](https://adventofcode.com/2021/day/13) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2013/day%2013.cpp)
+##### [--- Day 13: ---](https://adventofcode.com/2021/day/13) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2013/Day%2013.cpp)
 ##### [--- Day 14: ---](https://adventofcode.com/2021/day/14) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2014/Day%2014.cpp)
 ##### [--- Day 15: ---](https://adventofcode.com/2021/day/15) [(click here for my solution)](https://github.com/RodicaMihaelaVasilescu/AdventOfCode2021/blob/main/Day%2014/day%2014.cpp)
 
